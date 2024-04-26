@@ -60,7 +60,7 @@ void initGameBoard(char board[3][3])
 
 }
 
-//Finding the location of empty tiles and these moves are legal
+//Finding the location of empty tiles and the legal moves
 vector<vector<pair<int,int>>> findEmptyAndLegal(char board[3][3])
 {
 
@@ -76,6 +76,9 @@ vector<vector<pair<int,int>>> findEmptyAndLegal(char board[3][3])
             }
         }
     }
+
+    return legalMove;
 }
+
 
 
