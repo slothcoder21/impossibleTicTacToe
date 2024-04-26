@@ -8,17 +8,18 @@ using namespace std;
 void initGameBoard();
 void updateGameBoard(int, int);
 void gameResult(int);
+vector<vector<pair<int,int>>> findEmptyAndLegal(char);
 
 //Defining maximum scores for evaling possible goal states
-#define win 10000;
-#define tie 0;
-#define loss -10000;
+#define win 10000
+#define tie 0
+#define loss -10000
 //Defining who is playing with x and o
-#define playerMark '0';
-#define aiMark     'X';
-#define emptySpace '_';
+#define PLAYER_MARK 'O'
+#define AI_MARK    'X'
+#define emptySpace '_'
 
-#define startingDepth 0;
+#define startingDepth 0
 
 vector<vector<pair<int,int>>> winPossibilities
 {
@@ -59,5 +60,22 @@ void initGameBoard(char board[3][3])
 
 }
 
+//Finding the location of empty tiles and these moves are legal
+vector<vector<pair<int,int>>> findEmptyAndLegal(char board[3][3])
+{
+
+    vector<vector<pair<int,int>>> legalMove;
+
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            if(board[i][j] != AI_MARK && board[i][j] != PLAYER_MARK)
+            {
+                legalMove.push_back(vector<pair<int,int>>{make_pair(i,j)});
+            }
+        }
+    }
+}
 
 
